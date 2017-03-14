@@ -1,17 +1,14 @@
-# CP59-XXX-XXXX
-A Group chat, written in C.
+# CP59-RijndaelEncryption
+Home made Rijndael encryption.
 
-===================
 
 - - - - 
 
 # How to use #
-####Run Server at port 8888
+####Compile and RUN!
 
-	cd CP59-XXX-XXXX
+	cd CP59-RijndaelEncryption
 	make
-	./server
+	./rijndael -f [filename] -k [key] [--encrypt|--decrypt]
+
 	
-####Connect to server byusing nc command
-	
-	nc localhost 8888
