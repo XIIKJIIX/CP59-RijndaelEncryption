@@ -1,7 +1,13 @@
 #ifndef UTILITY_FUNCTION
 #define UTILITY_FUNCTION
 
-void dump(const char* data_buffer, const unsigned int length);
+void KeyExpansionCore(unsigned char *in, unsigned char i);
+void KeyExpansion (unsigned char *InputKey, unsigned char *expandedKey);
+void SubBytes(unsigned char *state);
+void ShiftRows(unsigned char *state);
+void MixColumns(unsigned char *state);
+void AddRoundKey(unsigned char *state, unsigned char *roundKey);
+void Encrypt (unsigned char *message, unsigned char *expandedKey);
 
 
 static unsigned char S_BOX[256] = {

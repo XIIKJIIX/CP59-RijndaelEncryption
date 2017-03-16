@@ -106,15 +106,13 @@ void AddRoundKey(unsigned char *state, unsigned char *roundKey) {
 		state[i] ^= roundKey[i];
 }
 
-void Encrypt (unsigned char *message, unsigned char *key) {
+void Encrypt (unsigned char *message, unsigned char *expandedKey) {
 	unsigned char state[BLOCK_SIZE];
 	for (int i = 0; i < BLOCK_SIZE; i++)
 		state[i] = message[i];
 	int numberOfRounds = 9;
 
-	unsigned char expandedKey[176];
-	KeyExpansion(key, expandedKey);
-	AddRoundKey(state, key); //Whitenning/Add roundkey
+	AddRoundKey(state, expandedKey); //Whitenning/Add roundkey
 
 	for (int i = 0; i < numberOfRounds; i++) {
 		SubBytes(state);
@@ -134,13 +132,34 @@ void Encrypt (unsigned char *message, unsigned char *key) {
 
 
 int main() {
-	unsigned char plaintext[16] = "aaaaaaaaaaaaaaaa";
+	unsigned char message[21] = "aaaaaaaaaaaaaaaaabbbb";
 	unsigned char key[16] = "aaaaaaaaaaaaaaaa";
-	// unsigned char *state = (unsigned char*)calloc(BLOCK_SIZE, sizeof(unsigned int));
 
-	Encrypt(plaintext, key);
-	unsigned char *enc = b64_encode(plaintext, strlen(plaintext));
-	printf("%s\n", enc);
+	//Initialize key schedule
+	unsigned char expandedKey[176];
+	KeyExpansion(key, expandedKey);
+
+	//Padding For plaintext
+	int length = strlen((const char*)message);
+	int paddedLength = length;
+	if (length % 16 != 0)
+		paddedLength = (length/16+1)*16;
+
+	unsigned char *paddedMessage = (unsigned char*)calloc(paddedLength, sizeof(unsigned char));
+	for (int i = 0; i < paddedLength; i++)
+		if (i < length)
+			paddedMessage[i] = message[i];
+		else
+			break;
+
+	for (int i = 0; i < paddedLength; i+=16)
+	{
+		Encrypt(paddedMessage+i, expandedKey); //paddedMessage has been encrypted
+	}
+	for (int i = 0; i < paddedLength; i++)
+		printf("%c", paddedMessage[i]);
+	//For file
+
 
 	return 0;
 }
