@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void dump(const char* data_buffer, const unsigned int length)
+void dump(unsigned char* data_buffer, const unsigned int length)
 {
 	char byte;
 	unsigned int i, j;

@@ -1,5 +1,5 @@
 # CP59-RijndaelEncryption
-Home made Rijndael encryption.
+Home made Rijndael encryption 128-bits. Written in C.
 
 
 - - - - 
