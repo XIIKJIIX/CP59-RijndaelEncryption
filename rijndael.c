@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "b64.h"
 #include "utility.h"
-#define BLOCK_SIZE 16
+
 
 
 int main(int argc, char const *argv[]) {
-	unsigned char message[21] = "aaaaaaaaaaaaaaaaabbbb";
+	unsigned char message[21] = "aaaaaaaaaaaaaaaa";
 	unsigned char key[16] = "aaaaaaaaaaaaaaaa";
 
 	//Initialize key schedule
@@ -31,6 +30,7 @@ int main(int argc, char const *argv[]) {
 	{
 		Encrypt(paddedMessage+i, expandedKey); //paddedMessage has been encrypted
 	}
+
 	for (int i = 0; i < paddedLength; i++)
 		printf("%c", paddedMessage[i]);
 	//For file
