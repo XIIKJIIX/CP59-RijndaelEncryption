@@ -170,7 +170,7 @@ void InvMixColumns(unsigned char *state) {
 	tmp[12] = (unsigned char)(MUL_14[state[12]] ^ MUL_11[state[13]] ^ MUL_13[state[14]] ^ MUL_9[state[15]]);
 	tmp[13] = (unsigned char)(MUL_9[state[12]] ^ MUL_14[state[13]] ^ MUL_11[state[14]] ^ MUL_13[state[15]]);
 	tmp[14] = (unsigned char)(MUL_13[state[12]] ^ MUL_9[state[13]] ^ MUL_14[state[14]] ^ MUL_11[state[15]]);
-	tmp[15] = (unsigned char)(MUL_11[state[12]] ^ MUL_13[state[1]3] ^ MUL_9[state[14]] ^ MUL_14[state[15]]);
+	tmp[15] = (unsigned char)(MUL_11[state[12]] ^ MUL_13[state[13]] ^ MUL_9[state[14]] ^ MUL_14[state[15]]);
 
 	for (int i = 0; i < BLOCK_SIZE; i++)
 		state[i] = tmp[i];
@@ -209,7 +209,25 @@ void Decrypt (unsigned char *message, unsigned char *expandedKey) {
 	unsigned char state[BLOCK_SIZE];
 	for (int i = 0; i < BLOCK_SIZE; i++)
 		state[i] = message[i];
-	
+
+	int numberOfRounds = 9;
+
+	AddRoundKey(state, expandedKey+160);
+
+	for(int i = numberOfRounds-1; i >= 0; i--) {
+		InvShiftRows(state);
+		InvSubBytes(state);
+		AddRoundKey(state, expandedKey + (16*(i+1)));
+		InvMixColumns(state);
+	}
+
+	InvShiftRows(state);
+	InvSubBytes(state);
+	AddRoundKey(state, expandedKey);
+
+	//Copy Decrypted State to message
+	for (int i = 0; i < BLOCK_SIZE; i++)
+		message[i] = state[i];
 }
 
 #endif
