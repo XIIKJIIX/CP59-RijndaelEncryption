@@ -41,7 +41,8 @@ int textMode(unsigned char *message, unsigned char *key, int is_encrypt) {
 		printf("Decrypted Message: %s\n", decoded);
 		return 0;
 	}
-
+	
+	//Encrypt
 	printf("Message: %s (len:%d)\nPassword: %s (len:%lu)\n", message, length, key, strlen((const char*)key));
 	//Padding For plaintext
 	int paddedLength = length;
