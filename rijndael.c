@@ -7,9 +7,38 @@
 
 int fileMode(char *filepath, unsigned char *key, int is_encrypt) {
 
+	unsigned char expandedKey[176];
+	KeyExpansion(key, expandedKey);
+
+	FILE *fp, *fn;
+	fp = fopen(filepath, "rb");
+	char *encFile = (char*)calloc(strlen(filepath)+11, sizeof(char));
+	strcpy(encFile, filepath);
+	strcat(encFile, ".encrypted");
+	fn = fopen(encFile, "wb");
+	if (fp == NULL) {
+		printf("File doesn't exist!!\n");
+		return 0;
+	}
+
+	//Get file size
+	fseek(fp, 0, SEEK_END);
+	int size = ftell(fp);
+	rewind(fp);
+	printf("File name: %s\n", filepath);
+	printf("File size: %d byte(s)\n", size);
+	printf("Encrypted file: %s\n", encFile);
+
+	//File doesn't need to be padded because calloc will auto padded with \0x00
+	int i;
+	for (i = 0; i < size; i+=16) {
+		unsigned char *buff = (unsigned char*)calloc(BLOCK_SIZE, sizeof(unsigned char));
+		fread(buff, 1, BLOCK_SIZE, fp);
+		Encrypt(buff, expandedKey);
+		fwrite(buff, 1, BLOCK_SIZE, fn);
+	}
 	return 0;
 }
-
 
 
 int main(int argc, char const *argv[]) {
@@ -32,6 +61,7 @@ int main(int argc, char const *argv[]) {
 		}
 		if (strcmp("-f", argv[i]) == 0) {
 			filepath = (char*)argv[++i];
+			continue;
 		}
 		if (strcmp("--encrypt", argv[i]) == 0) {
 			is_encrypt = 1;

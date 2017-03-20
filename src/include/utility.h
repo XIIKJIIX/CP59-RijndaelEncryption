@@ -2,6 +2,7 @@
 #define UTILITY_FUNCTION
 
 #include "lookup.h"
+#include "base64.h"
 void KeyExpansionCore(unsigned char *in, unsigned char i);
 void KeyExpansion (unsigned char *InputKey, unsigned char *expandedKey);
 void SubBytes(unsigned char *state);
@@ -281,7 +282,7 @@ int textMode(unsigned char *message, unsigned char *key, int is_encrypt) {
 	char *encoded = (char*)calloc(paddedLength, sizeof(char));
 	Base64encode(encoded, (const char*)paddedMessage, paddedLength);
 
-	printf("Base64 encoded message: %s\n", encoded);
+	printf("Base64 encoded  encrypted message: %s\n", encoded);
 	return 0;
 }
 
