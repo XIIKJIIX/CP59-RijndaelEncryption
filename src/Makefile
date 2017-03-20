@@ -1,4 +1,4 @@
-OBJS = utility.o decode.o encode.o
+OBJS = utility.o base64.o
 CFLAGS = -c -Iinclude
 CC = gcc
 
@@ -11,8 +11,8 @@ lib.a: $(OBJS)
 	$(CC) $(CFLAGS) $< -o $@
 
 utility.o: utility.c
-decode.o: decode.c
-encode.o: encode.c
+base64.o: base64.c
+
 
 
 clean:
