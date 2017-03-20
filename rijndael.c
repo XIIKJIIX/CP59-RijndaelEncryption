@@ -5,65 +5,12 @@
 #include "base64.h"
 #define MIN_ARGC 6
 
-int displayHelp() {
-	printf("Usage (Text Mode): ./rijndael -m [plaintext|base64Encrypted Message] -p [password] [--encrypt|--decrypt]\n");
-	printf("	For special character use \\ before. Ex. space use '\\ '.\n");
-	printf("Usage (File Mode): ./rijndael -f [/path/to/file] -p [password] [--encrypt|--decrypt]\n");
-	printf("	The output encrypted file will be named [filename].[type].encrypted\n");
-	printf("REMARK: MAX length of PASSWORD is 16 characters.\n");
-	return 0;
-}
-
 int fileMode(char *filepath, unsigned char *key, int is_encrypt) {
 
 	return 0;
 }
 
-int textMode(unsigned char *message, unsigned char *key, int is_encrypt) {
-	int length = strlen((const char*)message);
-	//Initialize key schedule
-	unsigned char expandedKey[176];
-	KeyExpansion(key, expandedKey);
 
-	//Decrypt
-	if (!is_encrypt) {
-		int decodedLength = Base64decode_len((const char*)message);
-		decodedLength = (int)(decodedLength/16)*16; //Correct the actual length of decoded
-		printf("Encoded Encrypted Message: %s (len:%d)\nPassword: %s (len:%lu)\n", message, length, key, strlen((const char*)key));
-		printf("Decoded length: %d\n", decodedLength);
-
-		char *decoded = (char*)calloc(length, sizeof(char));
-		Base64decode(decoded, (const char*)message);
-
-		for (int i = 0; i < decodedLength; i+=16)
-			Decrypt((unsigned char*)decoded+i, expandedKey);
- 
-		printf("Decrypted Message: %s\n", decoded);
-		return 0;
-	}
-	
-	//Encrypt
-	printf("Message: %s (len:%d)\nPassword: %s (len:%lu)\n", message, length, key, strlen((const char*)key));
-	//Padding For plaintext
-	int paddedLength = length;
-	if (length % 16 != 0)
-		paddedLength = (length/16+1)*16;
-
-	unsigned char *paddedMessage = (unsigned char*)calloc(paddedLength, sizeof(unsigned char));
-	for (int i = 0; i < paddedLength; i++)
-		if (i < length)
-			paddedMessage[i] = message[i];
-		else
-			break;
-	for (int i = 0; i < paddedLength; i+=16)
-		Encrypt(paddedMessage+i, expandedKey); //paddedMessage has been encrypted
-
-	char *encoded = (char*)calloc(paddedLength, sizeof(char));
-	Base64encode(encoded, (const char*)paddedMessage, paddedLength);
-
-	printf("Base64 encoded message: %s\n", encoded);
-	return 0;
-}
 
 int main(int argc, char const *argv[]) {
 	unsigned char *message = NULL;
