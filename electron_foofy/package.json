@@ -1,0 +1,17 @@
+{
+  "name": "electron_foofy",
+  "version": "1.0.0",
+  "description": "for C PROJECT WITH ELECTRON.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "Fragments of TE-WEB-TEAM, Boom, Mook and Tomo",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0"
+  },
+  "devDependencies": {
+    "electron": "^1.6.2"
+  }
+}

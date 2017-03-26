@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RijndaelEncryption</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header>
+    <img src="img/close.svg" alt="more" width="50px" class="close" onclick="window.close()">
+    <div class="dropdown">
+        <img src="img/more.svg" alt="more" width="50px" class="dropbtn">
+        <div class="dropdown-content">
+            <a href="index.html">Encrypt Files</a>
+            <a href="index3.html">Decrypt Files</a>
+            <a href="index4.html">Decrypt Text</a>
+        </div>
+    </div>
+</header>
+<section class="main">
+    <h1 class="headline">Encrypt Text</h1>
+    <div class="our-box" id="ourbox">
+
+        <label for="word">Please Push Your Secret</label><textarea id="word" ></textarea>
+        <label for="password">Password For ONLY You</label><input type="password" id="password">
+
+    </div>
+    <button class="button button1" onclick="add_va()">Okay</button>
+    <success id="list"></success>
+</section>
+
+<script>
+    function add_va() {
+        var exec = require("child_process").exec;
+        word = (document.getElementById("word").value);
+        password = (document.getElementById("password").value);
+        console.log(word)
+        console.log(password)
+        var command = './rijndael -m '+word+' -p '+password+' --encrypt'
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`exec error: ${error}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+        var success = [];
+        success.push(stdout)
+        document.getElementById('list').innerHTML = '<ul>' + success.join('') + '</ul>';
+    });
+    }
+</script>
+<script src="custom.js"></script>
+</body>
+</html>
