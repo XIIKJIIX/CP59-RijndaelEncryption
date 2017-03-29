@@ -20,13 +20,35 @@
 <section class="main">
     <h1 class="headline">Decrypt Text</h1>
     <div class="our-box" id="ourbox">
-        <img src="img/upload.svg" alt="upload">
+
+        <label for="word">Please Push Your Code</label><textarea id="word" ></textarea>
+        <label for="password">I want a Password</label><input type="password" id="password" maxlength="16">
+
     </div>
-    <button class="button button1" onclick="aaa()">Okay</button>
-    <output id="list"></output>
+    <button class="button button1" onclick="add_va()">Okay</button>
+    <success id="list"></success>
 </section>
 
-
-<script src="custom.js"></script>
+<script>
+    function add_va() {
+        var exec = require("child_process").exec;
+        word = (document.getElementById("word").value);
+        password = (document.getElementById("password").value);
+        console.log(word)
+        console.log(password)
+        var command = './rijndael -m '+word+' -p '+password+' --decrypt'
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`exec error: ${error}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+        var success = [];
+        success.push(stdout)
+        document.getElementById('list').innerHTML = '<textarea>' + success.join('') + '</textarea>';
+    });
+    }
+</script>
 </body>
 </html>

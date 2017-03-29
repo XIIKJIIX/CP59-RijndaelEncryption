@@ -2,6 +2,8 @@
  * Created by foofybuster on 3/26/2017 AD.
  */
 var paths = [];
+var file_name = [];
+var opener = [];
 function handleFileSelect(evt) {
     evt.stopPropagation();
     evt.preventDefault();
@@ -17,7 +19,10 @@ function handleFileSelect(evt) {
             f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
             '</li>');
         paths.push(f.path);
+        opener.push(f.path);
         console.log(f.path);
+        file_name.push(f.name);
+        console.log(f.name);
     }
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 }
@@ -27,5 +32,5 @@ function handleDragOver(evt) {
     evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 }
 var ourbox = document.getElementById('ourbox');
-ourbox.addEventListener('dragover', handleDragOver, false);
-ourbox.addEventListener('drop', handleFileSelect, false);
+ourbox.addEventListener('dragover', handleDragOver);
+ourbox.addEventListener('drop', handleFileSelect);

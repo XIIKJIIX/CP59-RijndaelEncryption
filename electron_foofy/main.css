@@ -1,9 +1,13 @@
 body{
-    background: #FFCCE6;
-    font-family: "Itim";
+    background: #050321;
+    font-family: "Hiragino Kaku Gothic Pro";
+    color: #fff;
 }
 section{
     display: block;
+    overflow-x: none;
+    overflow-y: none;
+    word-wrap: break-word;
 }
 
 header{
@@ -57,14 +61,14 @@ header{
 }
 .headline{
     text-align: center;
-    color: #454545;
+    color: #FFF;
 }
 .our-box{
     width: 250px;
     margin: auto;
     padding: 20px;
-    border: 8px dotted #46B2E6;
-    border-radius: 24px;
+    /*border: 8px dotted #46B2E6;*/
+    /*border-radius: 24px;*/
 }
 .button {
     border: none;
@@ -86,14 +90,14 @@ header{
 }
 
 .button1 {
-    background-color: white;
-    color: black;
+    background-color: #3F5B73;
+    color: #fff;
     border: 2px solid #454545;
 }
 
 .button1:hover {
     background-color: #CCE6FF;
-    color: white;
+    color: #000;
 }
 input{
 width: 100%;
@@ -101,7 +105,7 @@ padding: 12px 12px;
 margin: 8px 0;
 box-sizing: border-box;
 border: none;
-background-color: #46B2E6;
+background-color: #2D4760;
 color: white;
 }
 textarea{
@@ -111,6 +115,6 @@ textarea{
     margin: 8px 0;
     box-sizing: border-box;
     border: none;
-    background-color: #46B2E6;
+    background-color: #2D4760;
     color: white;
 }
