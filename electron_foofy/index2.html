@@ -22,7 +22,7 @@
     <div class="our-box" id="ourbox">
 
         <label for="word">Please Push Your Secret</label><textarea id="word" ></textarea>
-        <label for="password">Password For ONLY You</label><input type="password" id="password">
+        <label for="password">Password For ONLY You</label><input type="password" id="password" maxlength="16">
 
     </div>
     <button class="button button1" onclick="add_va()">Okay</button>
@@ -46,10 +46,9 @@
         console.log(`stderr: ${stderr}`);
         var success = [];
         success.push(stdout)
-        document.getElementById('list').innerHTML = '<ul>' + success.join('') + '</ul>';
+        document.getElementById('list').innerHTML = '<textarea>' + success.join('') + '</textarea>';
     });
     }
 </script>
-<script src="custom.js"></script>
 </body>
 </html>

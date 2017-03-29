@@ -21,12 +21,33 @@
     <h1 class="headline">Encrypt Files</h1>
     <div class="our-box" id="ourbox">
         <img src="img/upload.svg" alt="upload">
+        <label for="password">Password For ONLY You</label><input type="password" id="password" maxlength="16">
     </div>
-    <button class="button button1" onclick="aaa()">Okay</button>
+    <button class="button button1" onclick="add_va()">Okay</button>
     <output id="list"></output>
 </section>
 
-
+<script>
+    function add_va() {
+        var exec = require("child_process").exec;
+        opener = opener[0].split(file_name);
+        password = (document.getElementById("password").value);
+        console.log(file_name)
+        console.log(password)
+        var command = './rijndael -f '+paths+' -p '+password+' --encrypt'+'&& open '+opener[0]
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.error(`exec error: ${error}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        console.log(`stderr: ${stderr}`);
+        var success = [];
+        success.push(stdout)
+        document.getElementById('list').innerHTML = '<textarea>' + success.join('') + '</textarea>';
+    });
+    }
+</script>
 <script src="custom.js"></script>
 </body>
 </html>
