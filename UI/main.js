@@ -13,11 +13,11 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width:  800, height: 658,resizable: false,frame: false})
+  mainWindow = new BrowserWindow({width:  800, height: 700,resizable: false,frame: false})
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'start Program.html'),
+    pathname: path.join(__dirname, 'startProgram.html'),
     protocol: 'file:',
     slashes: true
   }))
