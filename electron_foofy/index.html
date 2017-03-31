@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RijndaelEncryption</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
 <header>
@@ -34,7 +34,7 @@
         password = (document.getElementById("password").value);
         console.log(file_name)
         console.log(password)
-        var command = './rijndael -f '+paths+' -p '+password+' --encrypt'+'&& open '+opener[0]
+        var command = './rijndael -f '+'"'+paths[0]+'"'+' -p '+'"'+password+'"'+' --encrypt'+'&& open '+opener[0]
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
