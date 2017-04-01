@@ -38,11 +38,19 @@ body {
     animation: logo 2s infinite;
 }
 
-.text{
+.text {
+    text-align: center;
+    font-family: 'Roboto';
+    color: white;
+    font-size: 2em;
+    margin-top: 26px;
+}
+
+.text .head {
     text-align: center;
     font-family: 'Roboto-R';
     color: white;
-    font-size: 2em;
+    font-size: 1em;
     margin-top: 26px;
 }
 
@@ -55,7 +63,7 @@ body {
     text-decoration: none;
     text-align: center;
     border-radius: 5px;
-    font-family: 'Poppins-R';
+    font-family: 'Roboto';
     color: white;
     font-size: 2em;
     transition: all 0.3s ease;
