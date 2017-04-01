@@ -4,15 +4,15 @@
     to{}
 }
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-semiBold.ttf') format('truetype');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-R';
-    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+    font-family: 'Roboto-R';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -40,7 +40,7 @@ body {
 
 .text{
     text-align: center;
-    font-family: 'Poppins-R';
+    font-family: 'Roboto-R';
     color: white;
     font-size: 2em;
     margin-top: 26px;

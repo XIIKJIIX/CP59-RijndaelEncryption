@@ -1,20 +1,20 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url('../fonts/Poppins-semiBold.ttf') format('truetype');
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Poppins-R';
-    src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+    font-family: 'Roboto-R';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 body{
     background: #050321;
     color: #fff;
-    font-family: 'Poppins-R';
+    font-family: 'Roboto-R';
 }
 section{
     display: block;
