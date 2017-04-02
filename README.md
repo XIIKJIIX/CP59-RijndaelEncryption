@@ -12,4 +12,4 @@ Home made Rijndael encryption 128-bits. Written in C.
 	./rijndael -f [filename] -k [key] [--encrypt|--decrypt]
 
 	
-Exclusive for MacOS
+!!!!Exclusive for MacOS!!!!
