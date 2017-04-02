@@ -4,13 +4,6 @@
 }
 
 @font-face {
-    font-family: 'segoeui';
-    src: url('../fonts/segoeui.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'segoeui-R';
     src: url('../fonts/segoeui.ttf') format('truetype');
     font-weight: normal;
@@ -45,8 +38,9 @@ body {
     transition: all 0.3s ease;
 }
 
-.text{
+.text {
     text-align: center;
+
     font-family: 'segoeui-R';
     color: white;
     font-size: 2em;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RijndaelEncryption</title>
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <header>
@@ -11,9 +11,9 @@
     <div class="dropdown">
         <img src="img/more.svg" alt="more" width="50px" class="dropbtn">
         <div class="dropdown-content">
-            <a href="index.html">Encrypt Files</a>
+            <a href="index.html">Encrypt File</a>
             <a href="index2.html">Encrypt Text</a>
-            <a href="index3.html">Decrypt Files</a>
+            <a href="index3.html">Decrypt File</a>
         </div>
     </div>
 </header>
@@ -21,8 +21,8 @@
     <h1 class="headline">Decrypt Text</h1>
     <div class="our-box" id="ourbox">
 
-        <label for="word">Please Push Your Code</label><textarea id="word" ></textarea>
-        <label for="password">I want a Password</label><input type="password" id="password" maxlength="16">
+        <label for="word">Type an encrypted text in base64 encoded</label><textarea id="word" ></textarea>
+        <label for="password">Password for decrypt</label><input type="password" id="password" maxlength="16">
 
     </div>
     <button class="button button1" onclick="add_va()">Okay</button>
