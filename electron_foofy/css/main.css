@@ -15,6 +15,7 @@ body{
     background: #050321;
     color: #fff;
     font-family: 'Roboto';
+    overflow: hidden;
 }
 section{
     display: block;
