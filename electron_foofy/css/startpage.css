@@ -1,23 +1,16 @@
 @keyframes blur {
-    from{-webkit-filter: blur(5px); /* Safari */
-        filter: blur(5px);}
+    from{filter: blur(5px);}
     to{}
-}
-@font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Thin.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
 }
 
 @font-face {
-    font-family: 'Roboto-R';
-    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+    font-family: 'segoeui-R';
+    src: url('../fonts/segoeui.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 body {
-    background: linear-gradient(160deg, #02CCBA 0%, #AA7ECD 100%);
+    background: linear-gradient(45deg, #528bf4 30%, #eaa9e1 70%);
     width: 800px;
     overflow: hidden;
     user-drag: none;
@@ -35,38 +28,48 @@ body {
     display: block;
     width: 150px;
     margin: 140px auto 0;
-    animation: logo 2s infinite;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+    transition: all 0.3s ease;
+}
+
+.logo:hover{
+    transform: rotate(180deg);
+    transition: all 0.3s ease;
 }
 
 .text {
     text-align: center;
-    font-family: 'Roboto';
+
+    font-family: 'segoeui-R';
     color: white;
     font-size: 2em;
     margin-top: 26px;
+    -webkit-box-reflect: below -18px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.3)));
 }
-
-.text .head {
+.text2{
     text-align: center;
-    font-family: 'Roboto-R';
+    font-family: 'segoeui-R';
     color: white;
-    font-size: 1em;
-    margin-top: 26px;
+    font-size: 2em;
+    margin-top: 2px;
+    -webkit-box-reflect: below -18px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(255, 255, 255, 0.3)));
 }
-
 .start{
     width: 200px;
     display: block;
-    padding: 10px 10px 5px;
+    padding: 10px 10px 15px;
     border: 2px solid #fff;
     margin: 40px auto 0;
     text-decoration: none;
     text-align: center;
-    border-radius: 5px;
-    font-family: 'Roboto';
+    border-radius: 50px;
+    font-family: 'segoeui-R';
     color: white;
     font-size: 2em;
+    font-weight: bold;
     transition: all 0.3s ease;
+
 }
 
 .start:hover{
