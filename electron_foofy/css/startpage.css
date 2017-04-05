@@ -10,7 +10,7 @@
     font-style: normal;
 }
 body {
-    background: linear-gradient(45deg, rgba(242,136,231,1) 0%, rgba(62,149,189,1) 100%);
+    background: linear-gradient(45deg, #528bf4 30%, #eaa9e1 70%);
     width: 800px;
     overflow: hidden;
     user-drag: none;

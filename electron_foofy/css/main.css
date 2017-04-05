@@ -8,12 +8,13 @@
 @font-face {
     font-family: 'segoeui-R';
     src: url('../fonts/Roboto-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-weight: bold;
     font-style: normal;
 }
 body{
     color: #fff;
-    font-family: 'segoeui';
+    font-family: 'segoeui-R';
+    text-shadow: 0px 0px 10px blue;
     overflow: hidden;
 }
 
@@ -41,7 +42,7 @@ header{
 }
 /* Style The Dropdown Button */
 .dropbtn {
-    padding: 10px 40px 10px 20px;
+    padding: 10px 50px 0px 0px;
     cursor: pointer;
 }
 
@@ -57,9 +58,11 @@ header{
 .dropdown-content {
     display: none;
     position: absolute;
+    font-family: 'segoeui-R';
     background-color: #f9f9f9;
     min-width: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    text-shadow: 0px 0px 0px;
     z-index: 1;
 }
 
@@ -67,6 +70,7 @@ header{
 .dropdown-content a {
     color: #46B2E6;
     padding: 10px;
+    font-family: 'segoeui-R';
     text-decoration: none;
     display: block;
     width: 120px;
@@ -74,11 +78,13 @@ header{
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
+    font-family: 'segoeui-R';
     background-color: #454545;
 }
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
+    background-color: white;
     display: block;
 }
 .headline{
