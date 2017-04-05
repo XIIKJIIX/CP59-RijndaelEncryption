@@ -30,7 +30,7 @@
         <label for="password">Password for encrypt</label><input type="password" id="password" maxlength="16">
 
     </div>
-    <button class="button button1" onclick="add_va()">Okay</button>
+    <button class="button button1" onclick="add_va()" type="submit">Okay</button>
     <success id="list"></success>
 </section>
 
@@ -41,7 +41,15 @@
         password = (document.getElementById("password").value);
         console.log(word)
         console.log(password)
-        var command = './rijndael -m '+'"'+word+'"'+' -p '+'"'+password+'"'+' --encrypt'
+        if((word.indexOf('"') == -1) && (password.indexOf('"') == -1)){
+            var command = __dirname+'/rijndael -m '+'"'+word+'"'+' -p '+'"'+password+'"'+' --encrypt'
+        } else if((word.indexOf('"') == -1) && (password.indexOf('"') != -1)) {
+            var command = __dirname+'/rijndael -m '+'"'+word+'"'+' -p '+"'"+password+"'"+' --encrypt'
+        } else if ((word.indexOf('"') != -1) && (password.indexOf('"') == -1)) {
+            var command = __dirname+'/rijndael -m '+"'"+word+"'"+' -p '+'"'+password+'"'+' --encrypt'
+        } else {
+            var command = __dirname+'/rijndael -m '+"'"+word+"'"+' -p '+"'"+password+"'"+' --encrypt'
+        }
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
@@ -51,7 +59,7 @@
         console.log(`stderr: ${stderr}`);
         var success = [];
         success.push(stdout)
-        document.getElementById('list').innerHTML = '<textarea>' + success.join('') + '</textarea>';
+        document.getElementById('list').innerHTML = '<textarea readonly="readonly">' + success.join('') + '</textarea>';
     });
     }
 </script>

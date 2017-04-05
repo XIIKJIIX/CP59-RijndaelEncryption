@@ -28,7 +28,7 @@
         <img src="img/upload.svg" alt="upload">
         <label for="password">Password for encrypt</label><input type="password" id="password" maxlength="16">
     </div>
-    <button class="button button1" onclick="add_va()">Encrypt</button>
+    <button class="button button1" onclick="add_va()" type="submit">Encrypt</button>
     <output id="list"></output>
 </section>
 
@@ -39,7 +39,7 @@
         password = (document.getElementById("password").value);
         console.log(file_name)
         console.log(password)
-        var command = './rijndael -f '+'"'+paths[0]+'"'+' -p '+'"'+password+'"'+' --encrypt'+'&& open '+opener[0]
+        var command = __dirname+'/rijndael -f '+'"'+paths[0]+'"'+' -p '+'"'+password+'"'+' --encrypt'+'&& open '+opener[0]
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
@@ -49,10 +49,10 @@
         console.log(`stderr: ${stderr}`);
         var success = [];
         success.push(stdout)
-        document.getElementById('list').innerHTML = '<textarea>' + success.join('') + '</textarea>';
+        document.getElementById('list').innerHTML = '<textarea readonly="readonly">' + success.join('') + '</textarea>';
     });
     }
 </script>
-<script src="custom.js"></script>
+<script src="dragdrop.js"></script>
 </body>
 </html>
