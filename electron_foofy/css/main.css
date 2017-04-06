@@ -16,6 +16,7 @@ body{
     font-family: 'segoeui-R';
     text-shadow: 0px 0px 10px blue;
     overflow: hidden;
+    margin: 0px;
 }
 
 * {
@@ -42,7 +43,8 @@ header{
 }
 /* Style The Dropdown Button */
 .dropbtn {
-    padding: 10px 50px 0px 0px;
+    margin : 0;
+    padding: 10px 30px 0px 0px;
     cursor: pointer;
 }
 
@@ -57,13 +59,15 @@ header{
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
+    text-align: center;
     position: absolute;
     font-family: 'segoeui-R';
     background-color: #f9f9f9;
     min-width: 50px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
     text-shadow: 0px 0px 0px;
-    z-index: 1;
+    right : 15px;
+
 }
 
 /* Links inside the dropdown */
@@ -74,6 +78,7 @@ header{
     text-decoration: none;
     display: block;
     width: 120px;
+    text-align: justify;
 }
 
 /* Change color of dropdown links on hover */
@@ -90,31 +95,36 @@ header{
 .headline{
     text-align: center;
     color: #FFF;
+    margin: 10px auto 10px;
     cursor: default;
+    display: block;
+}
+
+.drag{
+    text-align: center;
+    color: #FFF;
+    margin: 5px auto 15px;
+    cursor: default;
+    display: block;
 }
 .our-box{
     width: 250px;
-    margin: auto;
+    margin: 0 auto 0;
     padding: 20px;
     /*border: 8px dotted #46B2E6;*/
     /*border-radius: 24px;*/
 }
 .button {
-    border: none;
     color: white;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
+    margin: 10px auto 0;
     transition-duration: 0.4s;
     cursor: pointer;
-    margin: 20px -50px;
-    position: relative;
-    top:100%;
-    left:50%;
+    border: 0px;
     border-radius: 60px;
 }
 
@@ -122,6 +132,7 @@ header{
     background-color: #a489f7;
     color: #fff;
     box-shadow: 0px 0px 5px #fff;
+    transform: translate(1px,0px);
 }
 
 .button1:hover {
@@ -132,19 +143,33 @@ header{
 input{
 width: 100%;
 padding: 12px 12px;
-margin: 8px 0;
+margin: 8px auto 0;
 box-sizing: border-box;
+display: block;
 border: none;
 background-color: white;
 color: black;
 }
 textarea{
     width: 100%;
-    height: 80px;
+    height: 75px;
     padding: 12px 12px;
-    margin: 8px 0;
+    margin: 8px auto 40px;
     box-sizing: border-box;
     border: none;
+    display: block;
+    background-color: white;
+    color: black;
+}
+div#list{
+    margin: 30px;
+}
+
+div#list textarea{
+    width: 90%;
+    box-sizing: border-box;
+    border: none;
+    display: block;
     background-color: white;
     color: black;
 }

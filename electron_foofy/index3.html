@@ -7,6 +7,7 @@
     <style>
         body{
             background: url('img/bbg3.jpg');
+            width: 800px;
     }
     </style>
 </head>
@@ -16,9 +17,9 @@
     <div class="dropdown">
         <img src="img/more.svg" alt="more" width="50px" class="dropbtn">
         <div class="dropdown-content">
-            <a href="index.html">Encrypt File</a>
-            <a href="index2.html">Encrypt Text</a>
-            <a href="index4.html">Decrypt Text</a>
+            <a href="loading/loading2.html">Encrypt File</a>
+            <a href="loading/loading3.html">Encrypt Text</a>
+            <a href="loading/loading5.html">Decrypt Text</a>
         </div>
     </div>
 </header>
@@ -26,10 +27,11 @@
     <h1 class="headline">Decrypt File</h1>
     <div class="our-box" id="ourbox">
         <img src="img/upload.svg" alt="upload">
+        <h3 class="drag">Drag file here</h3>
         <label for="password">Password for decrypt</label><input type="password" id="password" maxlength="16">
     </div>
-    <button class="button button1" onclick="add_va()" type="submit">Okay</button>
-    <output id="list"></output>
+    <button class="button button1" onclick="add_va()" type="submit">Decrypt</button>
+    <div id="list"></div>
 </section>
 
 <script>
@@ -49,10 +51,11 @@
         console.log(`stderr: ${stderr}`);
         var success = [];
         success.push(stdout)
-        document.getElementById('list').innerHTML = '<textarea readonly="readonly">' + success.join('') + '</textarea>';
+        document.getElementById('list').innerHTML = '<textarea readonly="readonly" style="width: 620px">' + success.join('') + '</textarea>';
     });
     }
 </script>
 <script src="dragdrop.js"></script>
+<script src="enter.js" async="async"> </script>
 </body>
 </html>
