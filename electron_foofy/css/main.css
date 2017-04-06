@@ -93,7 +93,7 @@ header{
 .headline{
     text-align: center;
     color: #FFF;
-    margin: 30px auto 10px;
+    margin: 10px auto 10px;
     cursor: default;
     display: block;
 }
@@ -150,7 +150,7 @@ color: black;
 }
 textarea{
     width: 100%;
-    height: 80px;
+    height: 75px;
     padding: 12px 12px;
     margin: 8px auto 40px;
     box-sizing: border-box;
@@ -160,14 +160,11 @@ textarea{
     color: black;
 }
 div#list{
-    margin: 50px;
+    margin: 30px;
 }
 
 div#list textarea{
-    width: 100%;
-    height: 80px;
-    padding: 12px 12px;
-    margin: 30px;
+    width: 90%;
     box-sizing: border-box;
     border: none;
     display: block;
