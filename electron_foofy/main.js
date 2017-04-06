@@ -12,7 +12,7 @@ app.on('ready', () =>{
         height:700,
         resizable: false,
         frame: false
-    พ})
+    })
     win.loadURL(`file://${__dirname}/loading/loading.html`)
 })
 
