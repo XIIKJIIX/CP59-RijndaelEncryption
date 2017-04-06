@@ -17,9 +17,9 @@
     <div class="dropdown">
         <img src="img/more.svg" alt="more" width="50px" class="dropbtn">
         <div class="dropdown-content">
-            <a href="index2.html">Encrypt Text</a>
-            <a href="index3.html">Decrypt File</a>
-            <a href="index4.html">Decrypt Text</a>
+            <a href="loading/loading3.html">Encrypt Text</a>
+            <a href="loading/loading4.html">Decrypt File</a>
+            <a href="loading/loading5.html">Decrypt Text</a>
         </div>
     </div>
 </header>
@@ -31,7 +31,7 @@
         <label for="password">Password for encrypt</label><input type="password" id="password" maxlength="16">
     </div>
     <button class="button button1" onclick="add_va()" type="submit">Encrypt</button>
-    <output id="list"></output>
+    <div id="list"></div>
 </section>
 
 <script>
@@ -51,7 +51,7 @@
         console.log(`stderr: ${stderr}`);
         var success = [];
         success.push(stdout)
-        document.getElementById('list').innerHTML = '<textarea readonly="readonly">' + success.join('') + '</textarea>';
+        document.getElementById('list').innerHTML = '<textarea readonly="readonly" style="width: 620px">' + success.join('') + '</textarea>';
     });
     }
 </script>
