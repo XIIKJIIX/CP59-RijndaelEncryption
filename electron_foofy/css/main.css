@@ -16,6 +16,7 @@ body{
     font-family: 'segoeui-R';
     text-shadow: 0px 0px 10px blue;
     overflow: hidden;
+    margin: 0px;
 }
 
 * {
@@ -77,6 +78,7 @@ header{
     text-decoration: none;
     display: block;
     width: 120px;
+    text-align: justify;
 }
 
 /* Change color of dropdown links on hover */
