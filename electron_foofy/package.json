@@ -12,6 +12,7 @@
     "commander": "^2.9.0"
   },
   "devDependencies": {
-    "electron": "^1.6.2"
+    "electron": "^1.6.2",
+    "jquery": "^3.2.1"
   }
 }
