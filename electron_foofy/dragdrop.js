@@ -23,6 +23,8 @@ function handleFileSelect(evt) {
         console.log(f.path);
         file_name.push(f.name);
         console.log(f.name);
+        opener = opener[opener.length-1].split(file_name[file_name.length-1]);
+        console.log(opener)
     }
     document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 }

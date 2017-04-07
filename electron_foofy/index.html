@@ -37,11 +37,10 @@
 <script>
     function add_va() {
         var exec = require("child_process").exec;
-        opener = opener[0].split(file_name);
         password = (document.getElementById("password").value);
         console.log(file_name)
         console.log(password)
-        var command = __dirname+'/rijndael -f '+'"'+paths[0]+'"'+' -p '+'"'+password+'"'+' --encrypt'+'&& open '+opener[0]
+        var command = __dirname+'/rijndael -f '+'"'+paths[paths.length-1]+'"'+' -p '+'"'+password+'"'+' --encrypt'+' && open '+'"'+opener[0]+'"'
         exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.error(`exec error: ${error}`);
@@ -56,6 +55,6 @@
     }
 </script>
 <script src="dragdrop.js"></script>
-<script src="enter.js" async="async"> </script>
+<script src="enter.js"> </script>
 </body>
 </html>
