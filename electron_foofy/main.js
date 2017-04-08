@@ -16,7 +16,6 @@ app.on('ready', () =>{
     win.loadURL(`file://${__dirname}/loading/loading.html`)
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu);
-win.webContents.openDevTools()
 })
 
 app.on('window-all-closed', () => {
